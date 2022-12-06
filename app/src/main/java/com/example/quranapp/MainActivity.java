@@ -3,6 +3,8 @@ package com.example.quranapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ViewDebug;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -134,10 +136,20 @@ public class MainActivity extends AppCompatActivity {
                 "Al-Falaq ",
                 "Al-Nas ",
         };
+        //int y=1;
+        String[] englishSurahNamesWithIndexes= new String[englishSurahNames.length];
+        for (int i=0; i< englishSurahNames.length;i++){
+           String y = Integer.toString(i+1);
+
+             englishSurahNamesWithIndexes[i]= y + " " + " "+englishSurahNames[i] ;
+             //y++;
+
+        }
+
 
         lw= findViewById(R.id.SuratNamesListView);
 
-        ArrayList<String> arrli = new ArrayList<>(Arrays.asList(englishSurahNames));
+        ArrayList<String> arrli = new ArrayList<>(Arrays.asList(englishSurahNamesWithIndexes));
             //arrli  = Arrays.asList(englishSurahNames);
         ArrayAdapter<String> arradp = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrli);
         lw.setAdapter(arradp);
